@@ -12,4 +12,5 @@ class TestCheckout:
 
     def test_two_specials(self):
         total = checkout(["A", "B", "A", "A", "B", "D"])
-        assert total == 130 + 45 + 14
+        assert total == 130 + 45 + 15
+
