@@ -17,8 +17,8 @@ from collections import defaultdict
 def checkout(skus):
     cart = defaultdict(int)
     specials = {
-        '3A': 130,
-        '2B': 45,
+        "3A": 130,
+        "2B": 45,
     }
     for sku in skus:
         cart[sku] += 1
@@ -32,11 +32,6 @@ def checkout(skus):
             result += count
     return result
 
-        
-
-
-
-def 
 
 
 
