@@ -50,7 +50,3 @@ def checkout(skus):
         else:
             result += count * prices[sku]
     return result
-
-
-
-

@@ -52,27 +52,26 @@ class TestCheckout:
         assert checkout("a") == -1
         assert checkout("-") == -1
 
+        assert checkout("ABCa") == -1
+        assert checkout("AxA") == -1
 
-# id = CHK_R1_009, req = checkout("ABCa"), resp = -1
-# id = CHK_R1_010, req = checkout("AxA"), resp = -1
-# defaultdict(<class 'int'>, {'A': 1, 'B': 1, 'C': 1, 'D': 1})
-# id = CHK_R1_011, req = checkout("ABCD"), resp = 115
-# defaultdict(<class 'int'>, {'A': 1})
-# id = CHK_R1_012, req = checkout("A"), resp = 50
-# defaultdict(<class 'int'>, {'A': 2})
-# id = CHK_R1_013, req = checkout("AA"), resp = 100
-# defaultdict(<class 'int'>, {'A': 3})
-# id = CHK_R1_014, req = checkout("AAA"), resp = 130
-# defaultdict(<class 'int'>, {'A': 4})
-# id = CHK_R1_015, req = checkout("AAAA"), resp = 200
-# defaultdict(<class 'int'>, {'A': 5})
-# id = CHK_R1_016, req = checkout("AAAAA"), resp = 250
-# defaultdict(<class 'int'>, {'A': 6})
-# id = CHK_R1_017, req = checkout("AAAAAA"), resp = 300
-# defaultdict(<class 'int'>, {'B': 1})
-# id = CHK_R1_018, req = checkout("B"), resp = 30
-# defaultdict(<class 'int'>, {'B': 2})
-# id = CHK_R1_019, req = checkout("BB"), resp = 45
+        assert checkout("ABCD") == 115
+        assert checkout("A") == 50
+        assert checkout("AA") == 100
+
+        assert checkout("AAA") == 130
+        assert checkout("AAAA") == 180
+
+        assert checkout("AAAAA") == 250
+        assert checkout("AAAAAA") == 300
+
+        assert checkout("B") == 30
+        assert checkout("BB") == 45
+
+        assert checkout("BBB") == 90
+        assert checkout("BBBB") == 120
+
+
 # defaultdict(<class 'int'>, {'B': 3})
 # id = CHK_R1_020, req = checkout("BBB"), resp = 90
 # defaultdict(<class 'int'>, {'B': 4})
@@ -85,11 +84,3 @@ class TestCheckout:
 # id = CHK_R1_024, req = checkout("AAABB"), resp = 175
 # defaultdict(<class 'int'>, {'A': 7, 'B': 5, 'C': 3, 'D': 1})
 # id = CHK_R1_001, req = checkout("ABCDCBAABCABBAAA"), resp = 575
-
-
-
-
-
-
-
-
