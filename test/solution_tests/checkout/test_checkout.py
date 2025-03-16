@@ -26,7 +26,7 @@ class TestCheckout:
         total = checkout("AAAA")
         assert total == 180
 
-    def test_three(self):
+    def test_five_as(self):
         total = checkout("AAAAA")
         assert total == 230
 
@@ -47,6 +47,7 @@ class TestCheckout:
 # - {"method":"checkout","params":["AAAA"],"id":"CHK_R1_015"}, expected: 180, got: 200
 # - {"method":"checkout","params":["AAAAA"],"id":"CHK_R1_016"}, expected: 230, got: 250
 # - {"method":"checkout","params":["AAAAAA"],"id":"CHK_R1_017"}, expected: 260, got: 300
+
 
 
 
