@@ -62,25 +62,20 @@ class TestCheckout:
         assert checkout("AAA") == 130
         assert checkout("AAAA") == 180
 
-        assert checkout("AAAAA") == 250
-        assert checkout("AAAAAA") == 300
+        assert checkout("AAAAA") == 130 + 100
+        assert checkout("AAAAAA") == 260
 
         assert checkout("B") == 30
         assert checkout("BB") == 45
 
-        assert checkout("BBB") == 90
-        assert checkout("BBBB") == 120
+        assert checkout("BBB") == 75
+        assert checkout("BBBB") == 90
+
+        assert checkout("ABCDABCD") == 100 + 45 + 40 + 30
+        assert checkout("AABBDDCC") == 100 + 45 + 40 + 30
+
+        assert checkout("AAABB") == 130 + 50 + 45
 
 
-# defaultdict(<class 'int'>, {'B': 3})
-# id = CHK_R1_020, req = checkout("BBB"), resp = 90
-# defaultdict(<class 'int'>, {'B': 4})
-# id = CHK_R1_021, req = checkout("BBBB"), resp = 120
-# defaultdict(<class 'int'>, {'A': 2, 'B': 2, 'C': 2, 'D': 2})
-# id = CHK_R1_022, req = checkout("ABCDABCD"), resp = 215
-# defaultdict(<class 'int'>, {'B': 2, 'A': 2, 'D': 2, 'C': 2})
-# id = CHK_R1_023, req = checkout("BABDDCAC"), resp = 215
-# defaultdict(<class 'int'>, {'A': 3, 'B': 2})
-# id = CHK_R1_024, req = checkout("AAABB"), resp = 175
-# defaultdict(<class 'int'>, {'A': 7, 'B': 5, 'C': 3, 'D': 1})
 # id = CHK_R1_001, req = checkout("ABCDCBAABCABBAAA"), resp = 575
+
