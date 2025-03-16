@@ -1,3 +1,4 @@
+from collections import defaultdict
 # noinspection PyUnusedLocal
 # skus = unicode string
 
@@ -11,6 +12,22 @@
 # +------+-------+----------------+
 
 
+# assumptions
+# sku will come in a consistent case (upper or lower)
 def checkout(skus):
-    raise NotImplementedError()
+    cart = defaultdict(int)
+    specials = {
+        ('3A', 130),
+        ('2B', 45),
+    }
+    for sku in skus:
+        cart[sku] += 1
+
+    for 
+        
+
+
+
+def 
+
 
