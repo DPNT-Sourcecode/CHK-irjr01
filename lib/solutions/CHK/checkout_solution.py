@@ -105,20 +105,19 @@ def checkout(skus):
                     special_rate = times * special_price
                     print(f"{times=} {special_rate=}")
 
-                    # remaining = current_count % special_count
-                    # remaining_rate = remaining * prices[sku]
-
                     result += special_rate
                     print(f"{result=}")
                     current_count -= special_count
                     print(f"after disvount {current_count=}")
 
                 if current_count > 0:
-                    remaining_non_specials = count * prices[sku]
+                    remaining_non_specials = current_count * prices[sku]
                     result += remaining_non_specials
+                    current_count = 0
 
             else:
                 result += count * prices[sku]
 
     return result
+
 
