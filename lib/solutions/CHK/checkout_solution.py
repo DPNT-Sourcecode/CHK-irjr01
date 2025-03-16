@@ -36,14 +36,16 @@ def checkout(skus):
     print(cart)
     result = 0
     for sku, count in cart.items():
-        key = str(count) + sku
-        if key in specials:
+        if sku in specials:
+            (special_count, special_price) = specials[sku]
             # total count = 4 As
-            special_price = specials[key]
+            times = count // special_count
+            special_rate = times * special_price
 
-            result += specials[key]
+            result += special_rate
         else:
             result += count * prices[sku]
     return result
+
 
 
