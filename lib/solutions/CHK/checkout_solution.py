@@ -20,6 +20,13 @@ def checkout(skus):
         "3A": 130,
         "2B": 45,
     }
+
+    prices = {
+        "A": 50,
+        "B": 30,
+        "C": 20,
+        "D": 15,
+    }
     for sku in skus:
         cart[sku] += 1
 
@@ -29,8 +36,9 @@ def checkout(skus):
         if key in specials:
             result += specials[key]
         else:
-            result += count
+            result += prices[sku]
     return result
+
 
 
 
