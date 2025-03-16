@@ -64,7 +64,7 @@ def checkout(skus):
     cart = defaultdict(int)
     specials = {
         # key -> [(count, special price)]
-        "A": [(3, 130), (5, 200)],
+        "A": [(5, 200), (3, 130)],
         "B": [(2, 45)],
     }
 
@@ -101,6 +101,7 @@ def checkout(skus):
         else:
             result += count * prices[sku]
     return result
+
 
 
 
