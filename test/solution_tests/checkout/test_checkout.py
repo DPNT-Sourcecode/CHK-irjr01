@@ -44,5 +44,11 @@ class TestCheckout:
         assert total == 260 + 50 + 15 + 45 + 30
 
 
+# - {"method":"checkout","params":["AAAA"],"id":"CHK_R1_015"}, expected: 180, got: 200
+# - {"method":"checkout","params":["AAAAA"],"id":"CHK_R1_016"}, expected: 230, got: 250
+# - {"method":"checkout","params":["AAAAAA"],"id":"CHK_R1_017"}, expected: 260, got: 300
+
+
+
 
 
