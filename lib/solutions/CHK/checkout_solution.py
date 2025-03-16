@@ -17,17 +17,26 @@ from collections import defaultdict
 def checkout(skus):
     cart = defaultdict(int)
     specials = {
-        ('3A', 130),
-        ('2B', 45),
+        '3A': 130,
+        '2B': 45,
     }
     for sku in skus:
         cart[sku] += 1
 
-    for 
+    result = 0
+    for sku, count in cart.items():
+        key = str(count) + sku
+        if key in specials:
+            result += specials[key]
+        else:
+            result += count
+    return result
+
         
 
 
 
 def 
+
 
 
