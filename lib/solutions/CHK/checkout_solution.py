@@ -45,8 +45,11 @@ def checkout(skus):
             remaining = count % special_count
             remaining_rate = remaining * prices[sku]
 
+            print(f"{times=} {special_rate=} {remaining=} {remaining_rate=}")
+
             result += special_rate + remaining_rate
 
         else:
             result += count * prices[sku]
     return result
+

@@ -74,8 +74,9 @@ class TestCheckout:
         assert checkout("ABCDABCD") == 100 + 45 + 40 + 30
         assert checkout("AABBDDCC") == 100 + 45 + 40 + 30
 
-        assert checkout("AAABB") == 130 + 50 + 45
+        assert checkout("AAABB") == 130 + 45
 
 
 # id = CHK_R1_001, req = checkout("ABCDCBAABCABBAAA"), resp = 575
+
 
