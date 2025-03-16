@@ -103,23 +103,21 @@ def checkout(skus):
 
                     times = current_count // special_count
                     special_rate = times * special_price
+                    print(f"{times=} {special_rate=}")
 
-                    remaining = current_count % special_count
-                    remaining_rate = remaining * prices[sku]
+                    # remaining = current_count % special_count
+                    # remaining_rate = remaining * prices[sku]
 
-                    result += special_rate + remaining_rate
+                    result += special_rate
                     print(f"{result=}")
                     current_count -= special_count
                     print(f"after disvount {current_count=}")
+
+                remaining = current_count % current_count
+                remaining_rate = remaining * prices[sku]
+                result += remaining_rate
 
             else:
                 result += count * prices[sku]
 
     return result
-
-
-
-
-
-
-

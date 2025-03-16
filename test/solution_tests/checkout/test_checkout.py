@@ -78,13 +78,8 @@ class TestCheckoutOne:
         assert checkout_one("AAABB") == 130 + 45
 
     def test_double_discount(self):
-        assert checkout("AAAAAAAA") == 200 + 130
+        assert checkout("AAAAAAAAA") == 200 + 130 + 50
 
 
 # id = CHK_R1_001, req = checkout("ABCDCBAABCABBAAA"), resp = 575
 #
-
-
-
-
-
