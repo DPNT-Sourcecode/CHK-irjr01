@@ -113,11 +113,12 @@ def checkout(skus):
                     current_count -= special_count
                     print(f"after disvount {current_count=}")
 
-                remaining = current_count % current_count
-                remaining_rate = remaining * prices[sku]
-                result += remaining_rate
+                if current_count > 0:
+                    remaining_non_specials = count * prices[sku]
+                    result += remaining_non_specials
 
             else:
                 result += count * prices[sku]
 
     return result
+
