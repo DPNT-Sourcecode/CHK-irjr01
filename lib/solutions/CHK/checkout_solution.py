@@ -14,7 +14,7 @@ from collections import defaultdict
 
 # assumptions
 # sku will come in a consistent case (upper or lower)
-def checkout(skus):
+def checkout_one(skus):
     cart = defaultdict(int)
     specials = {
         # key -> (count, special price)
@@ -49,5 +49,58 @@ def checkout(skus):
         else:
             result += count * prices[sku]
     return result
+
+
+# +------+-------+------------------------+
+# | Item | Price | Special offers         |
+# +------+-------+------------------------+
+# | A    | 50    | 3A for 130, 5A for 200 |
+# | B    | 30    | 2B for 45              |
+# | C    | 20    |                        |
+# | D    | 15    |                        |
+# | E    | 40    | 2E get one B free      |
+# +------+-------+------------------------+
+def checkout(skus):
+    cart = defaultdict(int)
+    specials = {
+        # key -> [(count, special price)]
+        "A": [(3, 130), (5, 200)],
+        "B": [(2, 45)],
+    }
+
+    bogo_specials = {
+        # key -> [(count, special price)]
+        "E": ("B", 1)
+    }
+
+    prices = {
+        "A": 50,
+        "B": 30,
+        "C": 20,
+        "D": 15,
+        "E": 40,
+    }
+    for sku in skus:
+        if sku not in prices:
+            return -1
+        cart[sku] += 1
+
+    result = 0
+    for sku, count in cart.items():
+        if sku in specials:
+            (special_count, special_price) = specials[sku]
+
+            times = count // special_count
+            special_rate = times * special_price
+
+            remaining = count % special_count
+            remaining_rate = remaining * prices[sku]
+
+            result += special_rate + remaining_rate
+
+        else:
+            result += count * prices[sku]
+    return result
+
 
 
