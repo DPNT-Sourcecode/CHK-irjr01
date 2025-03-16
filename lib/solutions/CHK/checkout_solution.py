@@ -95,22 +95,28 @@ def checkout(skus):
     for sku, count in cart.items():
         current_count = count
         while current_count > 0:
+            print(f"{current_count=}")
             if sku in specials:
                 for deal in specials[sku]:
-                    (special_count, special_price) = specials[sku]
+                    (special_count, special_price) = deal
+                    print(f"{special_count=} {special_price=}")
 
-                    times = count // special_count
+                    times = current_count // special_count
                     special_rate = times * special_price
 
-                    remaining = count % special_count
+                    remaining = current_count % special_count
                     remaining_rate = remaining * prices[sku]
 
                     result += special_rate + remaining_rate
+                    print(f"{result=}")
+                    current_count -= special_count
+                    print(f"after disvount {current_count=}")
 
             else:
                 result += count * prices[sku]
 
     return result
+
 
 
 
