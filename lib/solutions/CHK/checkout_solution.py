@@ -32,11 +32,13 @@ def checkout(skus):
             return -1
         cart[sku] += 1
 
+    print(cart)
     result = 0
     for sku, count in cart.items():
         key = str(count) + sku
         if key in specials:
             result += specials[key]
         else:
-            result += prices[sku]
+            result += count * prices[sku]
     return result
+
