@@ -34,5 +34,15 @@ class TestCheckout:
         total = checkout("AAAAAA")
         assert total == 260
 
+    def test_multiple_specials_two(self):
+        total = checkout("AAAAAAADBBB")
+        # 2 A specials
+        # 1 remaining A
+        # 1 B special
+        # 1 remaining B
+        # 1 D
+        assert total == 260 + 50 + 15 + 45 + 30
+
+
 
 

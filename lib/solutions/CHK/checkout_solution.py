@@ -38,14 +38,19 @@ def checkout(skus):
     for sku, count in cart.items():
         if sku in specials:
             (special_count, special_price) = specials[sku]
-            # total count = 4 As
+
             times = count // special_count
             special_rate = times * special_price
 
-            result += special_rate
+            remaining = count % special_count
+            remaining_rate = remaining * prices[sku]
+
+            result += special_rate + remaining_rate
+
         else:
             result += count * prices[sku]
     return result
+
 
 
 
