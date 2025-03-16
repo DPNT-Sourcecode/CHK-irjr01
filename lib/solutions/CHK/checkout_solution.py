@@ -17,8 +17,9 @@ from collections import defaultdict
 def checkout(skus):
     cart = defaultdict(int)
     specials = {
-        "3A": 130,
-        "2B": 45,
+        # key -> (count, special price)
+        "A": (3, 130),
+        "B": (2, 45),
     }
 
     prices = {
@@ -37,8 +38,12 @@ def checkout(skus):
     for sku, count in cart.items():
         key = str(count) + sku
         if key in specials:
+            # total count = 4 As
+            special_price = specials[key]
+
             result += specials[key]
         else:
             result += count * prices[sku]
     return result
+
 
