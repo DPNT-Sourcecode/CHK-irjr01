@@ -85,9 +85,17 @@ def checkout(skus):
             return -1
         cart[sku] += 1
 
+    # applying these specials favors the customers more
+    for sku in skus:
+        if sku in bogo_specials:
+            (discount_sku, discount_count) = bogo_specials[sku]
+            cart[discount_sku] -= discount_count
+
     result = 0
     for sku, count in cart.items():
         if sku in specials:
+            for deal in specials[sku]:
+
             (special_count, special_price) = specials[sku]
 
             times = count // special_count
@@ -100,7 +108,9 @@ def checkout(skus):
 
         else:
             result += count * prices[sku]
+
     return result
+
 
 
 

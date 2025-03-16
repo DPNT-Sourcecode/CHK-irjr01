@@ -1,4 +1,5 @@
 from lib.solutions.CHK.checkout_solution import checkout_one
+from lib.solutions.CHK.checkout_solution import checkout
 
 
 class TestCheckoutOne:
@@ -76,8 +77,13 @@ class TestCheckoutOne:
 
         assert checkout_one("AAABB") == 130 + 45
 
+    def test_double_discount(self):
+        assert checkout_one("AAABB") == 130 + 45
+
 
 # id = CHK_R1_001, req = checkout("ABCDCBAABCABBAAA"), resp = 575
+#
+
 
 
 
