@@ -28,6 +28,8 @@ def checkout(skus):
         "D": 15,
     }
     for sku in skus:
+        if sku not in prices:
+            return -1
         cart[sku] += 1
 
     result = 0
@@ -38,8 +40,3 @@ def checkout(skus):
         else:
             result += prices[sku]
     return result
-
-
-
-
-

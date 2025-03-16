@@ -14,3 +14,6 @@ class TestCheckout:
         total = checkout(["A", "B", "A", "A", "B", "D"])
         assert total == 130 + 45 + 15
 
+    def test_invalid_input(self):
+        total = checkout(["A", "B", "A", "A", "B", "D", "9"])
+        assert total == -1
